@@ -7878,7 +7878,7 @@ function assert(expression) {
     }
 }
 
-})(window)
+})(typeof window !== 'undefined' ? window : global)
 },{"util":11,"assert":12}],10:[function(require,module,exports){
 (function(){//     Underscore.js 1.4.4
 //     http://underscorejs.org
