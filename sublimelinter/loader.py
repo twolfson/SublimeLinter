@@ -114,7 +114,6 @@ class Loader(object):
 
                 lc_language = language.lower()
                 self.linters[lc_language] = linter
-                print lc_language
                 print u'SublimeLinter: {0} loaded'.format(language)
             else:
                 print u'SublimeLinter: {0} disabled (no language specified in module)'.format(name)
