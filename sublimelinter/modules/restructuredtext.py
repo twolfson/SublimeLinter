@@ -14,7 +14,13 @@ class Linter(BaseLinter):
             errors = json.loads(error_json)
         except ValueError as e:
             print('Could not parse rst.')
-            print(error_json)
+            print('rst-lint stderr: ', error_json)
             raise e
-        for error in errors:
-            self.add_message(error['line'], lines, error['message'], errorMessages)
+        try:
+            for error in errors:
+                # print('Outputting: ', error['line'], error['message'])
+                self.add_message(error['line'], lines, error['message'], errorMessages)
+        except Exception:
+            print('Error while outputting for rst-lint')
+            print('rst-lint stderr: ', error_json)
+            raise
