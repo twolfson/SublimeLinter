@@ -18,7 +18,8 @@ exports.lint = function (code, config) {
         results.push({line: 1, character: 1, reason: e.message});
     } finally {
         JSHINT.errors.forEach(function (error) {
-            if (error) {
+            // If there is an error and it is not an option complaint, add it
+            if (error && error.code !== 'E001') {
                 results.push(error);
             }
         });
